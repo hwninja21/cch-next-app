@@ -1,0 +1,61 @@
+.videoplayer {
+  width: 100%;
+  padding: 10px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-color: $darkBlue;
+  overflow: hidden;
+  position: relative;
+  top: -1px;
+  @include setFlex(center, center);
+  flex-direction: column;
+
+  &__body {
+    @include setFlex(space-between, center);
+
+  }
+
+  &__time {
+    @include setFonts(Avenir Normal, normal, 400, 16px, 22px);
+    color: #fff;
+    margin-left: 4px;
+  }
+  &__volume{
+    width: 130px;
+    margin: 0 10px;
+  }
+
+  &__left-container, &__right-container {
+    @include setFlex(space-between, center);
+  }
+
+  &__body, &__progress {
+    width: 100%;
+  }
+
+  &__progress {
+    @include setFlex(center, center);
+    margin-top: 5px;
+
+    &_item {
+      width: 98%;
+    }
+  }
+
+  .button {
+    background-color: transparent;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 416px) {
+  .videoplayer {
+    &__volume{
+      width: 55px;
+      margin: 0 3px;
+    }
+  }
+}

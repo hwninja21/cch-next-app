@@ -1,0 +1,157 @@
+.staticHeader {
+  &__nav {
+    padding: 65px 0 0 100px;
+    width: 100%;
+    @include setFlex(flex-start, flex-end);
+
+    &_title {
+      display: flex;
+      margin-right: 221px;
+
+      &-link {
+        @include setWidthAndHeight(100px, 45px);
+        background-image: url("/images/logo.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        text-decoration: none;
+      }
+    }
+
+    &-menu {
+      width: 267px;
+      @include setFlex(space-between, center);
+
+      &_item {
+        @include setFonts(Avenir Normal, normal, normal, 16px, 21px);
+        @include setLink($mainColorOpacity);
+        @include setTransition(all, .2s, ease);
+
+        &:hover {
+          text-shadow: 0.4px 0.4px 0 $mainColorOpacity;
+        }
+      }
+    }
+
+    &_menu-button {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 416px) {
+  .staticHeader {
+    &__nav {
+      padding: 29px 28px 0 30px;
+      justify-content: space-between;
+      width: 100%;
+
+      &_title {
+        margin-right: 0;
+      }
+
+      &-menu {
+        flex-direction: column;
+        color: #999;
+        width: 160px;
+        padding: 2px 6px;
+        margin: auto;
+        text-align: center;
+        @include setBorderRadius(4px);
+        background: #000;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+        opacity: 0;
+        visibility: hidden;
+        @include setTransition(opacity, .2s, ease-in-out);
+        position: absolute;
+        top: 80px;
+        right: 18px;
+        z-index: 3;
+
+        &.active {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        &:after {
+          position: absolute;
+          top: -18px;
+          left: 110.5px;
+          content: "";
+          display: block;
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+          border-bottom: 20px solid #000;
+        }
+
+        &_link {
+          width: 100%;
+          @include setTransition(all, .2s, ease-in);
+          text-align: left;
+          color: #fff;
+
+          &:hover, &:focus {
+            text-decoration: underline;
+            text-shadow: 0.4px 0.4px 0 #fff;
+          }
+
+        }
+
+        &_item {
+          color: #fff;
+        }
+      }
+
+      &_menu-button {
+        display: block;
+        width: 50px;
+        height: 50px;
+        padding: 20px;
+        background-color: transparent;
+        position: relative;
+
+        .toggle-line {
+          position: relative;
+          display: block;
+
+          &, &::before, &::after {
+            position: absolute;
+            width: 30px;
+            height: 5px;
+            background-color: #000;
+            top: 50%;
+            left: 50%;
+            margin-top: -1px;
+            margin-left: -15px;
+            @include setBorderRadius(7px);
+            @include setTransition(transform, .1s, linear);
+          }
+
+          &::before, &::after {
+            content: '';
+          }
+
+          &::before {
+            transform: translateY(-12px);
+          }
+
+          &::after {
+            transform: translateY(8px);
+          }
+
+          &.active {
+            height: 0;
+          }
+
+          &.active::before {
+            transform: rotate(45deg);
+          }
+
+          &.active::after {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+}

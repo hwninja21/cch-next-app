@@ -1,0 +1,302 @@
+.headerCards {
+  .container {
+    padding: 55px 50px 92px 99px;
+  }
+
+  &__nav {
+    @include setFlex(space-between, center);
+
+    &_title {
+      margin-right: 111px;
+      display: flex;
+      margin-top: -16px;
+
+      &-link {
+        @include setWidthAndHeight(100px, 45px);
+        background-image: url("/images/logo.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        text-decoration: none;
+      }
+    }
+
+    &-menu {
+      @include setFlex(space-between, center);
+      margin-right: auto;
+
+      &_item {
+        @include setFonts(Avenir Normal, normal, normal, 16px, 21px);
+        @include setTransition(all, 0.2s, linear);
+        color: $mainColor;
+        text-decoration: none;
+        padding: 8px 12px;
+
+        &:hover {
+          text-shadow: 0.4px 0.4px 0 $mainColor;
+        }
+      }
+    }
+
+    .auth-button-container {
+      position: relative;
+      cursor: pointer;
+      min-width: 163px;
+
+      .btn-signup,
+      .btn-login {
+        background: transparent;
+        border: 2px solid;
+        padding: 8px 26px;
+        border-radius: 6px;
+        margin-right: 16px;
+        cursor: pointer;
+
+        &:hover {
+          color: #000;
+          background-color: #fff;
+        }
+      }
+
+      .profile-image-wrappper {
+        display: flex;
+        align-items: center;
+
+        @media screen and (max-width: 768px) {
+          justify-content: flex-end;
+        }
+
+        .dropdown-button {
+          position: relative;
+          font-size: 16px;
+          font-family: "Avenir Normal";
+          line-height: 22px;
+          color: #320325;
+          margin-right: 27px;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: calc(100% + 6px);
+            width: 8px;
+            height: 8px;
+            border-left: 2px solid;
+            border-bottom: 2px solid;
+            transform: rotate(-45deg);
+          }
+        }
+
+        .profile-image {
+          width: 49px;
+          border-radius: 30px;
+        }
+      }
+
+      .dropdown {
+        position: absolute;
+        padding: 8px 14px;
+        background: #fff;
+        z-index: 10;
+        box-shadow: 0px 24px 44px rgba(33, 0, 57, 0.1);
+        border-radius: 9px;
+        display: none;
+
+        .dropdown__item {
+          padding: 10px 0;
+
+          a {
+            font-family: "Avenir Normal";
+            font-size: 16px;
+            line-height: 22px;
+            color: #320325;
+            text-decoration: none;
+          }
+        }
+      }
+
+      &.opened {
+        .dropdown {
+          display: block;
+        }
+
+        .dropdown-button {
+          &::after {
+            top: 8px;
+            transform: rotate(135deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .headerCards {
+    &__nav {
+      &_title {
+        margin-right: 25px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .headerCards {
+    .showMobile {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .showDesktop {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerCards {
+    .container {
+      padding: 20px 18px 56px 29px;
+    }
+
+    &__nav {
+      max-width: 100%;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+
+      &-menu {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        color: #999;
+        width: 160px;
+        padding: 2px 6px;
+        margin: auto;
+        text-align: center;
+        @include setBorderRadius(4px);
+        background: #000;
+        -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+        opacity: 0;
+        visibility: hidden;
+        @include setTransition(opacity, 0.4s, ease-out);
+        position: absolute;
+        top: 75px;
+        right: 10px;
+        z-index: 3;
+
+        &.active {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        &:after {
+          position: absolute;
+          top: -17px;
+          left: 110.5px;
+          content: "";
+          display: block;
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+          border-bottom: 20px solid #000;
+        }
+
+        &_link {
+          width: 100%;
+          @include setTransition(all, 0.2s, ease-in);
+          text-align: left;
+
+          &:hover,
+          &:focus {
+            text-shadow: 0.4px 0.4px 0 #fff;
+            text-decoration: underline;
+          }
+        }
+
+        &_item {
+          color: #fff;
+        }
+      }
+
+      .auth-button-container {
+        margin-left: auto;
+      }
+
+      &_menu-button {
+        display: block;
+        width: 50px;
+        height: 50px;
+        padding: 20px;
+        background-color: transparent;
+        position: relative;
+
+        .toggle-line {
+          position: relative;
+          display: block;
+
+          &,
+          &::before,
+          &::after {
+            position: absolute;
+            width: 30px;
+            height: 5px;
+            background-color: #000;
+            top: 50%;
+            left: 50%;
+            margin-top: -1px;
+            margin-left: -15px;
+            @include setBorderRadius(7px);
+            @include setTransition(transform, 0.1s, linear);
+          }
+
+          &::before,
+          &::after {
+            content: "";
+          }
+
+          &::before {
+            -webkit-transform: translateY(-12px);
+            -ms-transform: translateY(-12px);
+            transform: translateY(-12px);
+          }
+
+          &::after {
+            -webkit-transform: translateY(8px);
+            -ms-transform: translateY(8px);
+            transform: translateY(8px);
+          }
+
+          &.active {
+            height: 0;
+          }
+
+          &.active::before {
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+          }
+
+          &.active::after {
+            -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .headerCards {
+    &__nav {
+      &_title {
+        margin-right: 30%;
+      }
+    }
+  }
+}

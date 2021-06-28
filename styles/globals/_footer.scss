@@ -1,0 +1,123 @@
+.footer {
+  background-color: rgba(50, 3, 37, 0.03);
+  padding: 27px 102px 25px 99px;
+
+  .container {
+    @include setFlex(space-between, center);
+  }
+
+  &__title {
+    @include setFonts(Paytone One, normal, normal, 22px, 31px);
+    margin-bottom: 13px;
+
+    &_link {
+      text-decoration: none;
+      color: $mainColor;
+    }
+  }
+
+  &__subtitle {
+    @include setFonts(Avenir Normal, normal, normal, 10px, 14px);
+    color: $mainColorOpacity;
+  }
+
+  &__list {
+    @include setFlex(space-between, center);
+    width: 620px;
+    max-width: 620px;
+
+    &-item {
+      &_link {
+        @include setFonts(Avenir Normal, normal, normal, 16px, 22px);
+        @include setLink();
+        @include setTransition(all, .2s, linear);
+
+        &:hover {
+          text-shadow: 0.4px 0.4px 0 $mainColor;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .footer {
+    &__list {
+      width: 400px;
+      max-width: 400px;
+    }
+  }
+}
+
+@media (max-width: 416px) {
+  .footer {
+    padding: 22px 29px 41px 30px;
+    background-color: $footerBg;
+    margin-top: 53px;
+
+    .container {
+      padding: 0;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+    }
+
+    &__info {
+      margin-bottom: 10px;
+    }
+
+    &__title {
+      margin-right: 0;
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    &__list {
+      max-width: 260px;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+
+      &-item {
+        &_link {
+          color: $greyColor;
+          font-size: 12px;
+          line-height: 15px;
+
+          &:hover {
+            text-shadow: 0.4px 0.4px 0 $greyColor;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .footer {
+
+    .container {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+
+    &__info {
+      @include setFlex(center, center);
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+
+    &__title {
+      margin-bottom: 15px;
+    }
+
+    &__list {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}

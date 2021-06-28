@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  background-color: #fafafa;
+  -webkit-text-size-adjust: none;
+  // -webkit-transform: translate3d(0, 0, 0);
+
+  &.modal-open {
+    overflow: hidden;
+    -webkit-transform: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 102px;
+}
+
+.header,
+.main,
+.footer {
+  width: 100%;
+}
+
+button,
+iframe {
+  border: none;
+  outline: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a[name="cachy"],
+a[name="explore"] {
+  position: relative;
+  top: -50px;
+}
+
+video::-webkit-media-controls-overlay-play-button {
+  display: none;
+}
+
+video::-internal-media-controls-download-button {
+  display: none;
+}
+
+video::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+
+@import "videoplayer-controller";
+
+.ellipse {
+  @include setWidthAndHeight(150px, 150px);
+  border-radius: 100%;
+  border: 3px solid #fff;
+  @include setTransition(all, 0.2s, linear);
+  //@include setTransition(background-color, .3s, linear);
+  @include setFlex(center, center);
+
+  &:hover,
+  &:hover .triangle {
+    border-color: $mainColor;
+  }
+
+  &:hover .triangle {
+    background-image: url("/images/p1.svg");
+  }
+
+  .triangle {
+    @include setWidthAndHeight(80px, 94px);
+    @include setTransition(background-image, 0.2s, linear);
+    background-image: url("/images/p2.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    left: 10px;
+
+    &:hover {
+      background-image: url("/images/p1.svg");
+    }
+  }
+}
+
+.staticContainer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 167px;
+}
+
+@media (max-width: 1320px) {
+  .container {
+    padding: 0 40px;
+  }
+  .staticContainer {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 416px) {
+  .container {
+    padding: 0 23px 0 29px;
+  }
+  .ellipse {
+    @include setWidthAndHeight(76px, 76px);
+
+    .triangle {
+      @include setWidthAndHeight(43px, 52px);
+      background-image: url("/images/p1-w415.svg");
+      background-size: cover;
+      -webkit-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      left: 5px;
+      -webkit-user-select: none;
+      cursor: -webkit-zoom-in;
+
+      &:hover {
+        background-image: url("/images/p2-w415.svg");
+      }
+    }
+  }
+}
+
+@media (max-width: 340px) {
+  a[name="explore"] {
+    top: -15px;
+  }
+  a[name="cachy"] {
+    top: -35px;
+  }
+}
+
+@-webkit-keyframes arrow {
+  0% {
+    -webkit-transform: translate(0, -20px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(0, 20px);
+    opacity: 0;
+  }
+}

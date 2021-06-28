@@ -1,0 +1,64 @@
+.mainContact {
+  &__info {
+    @include setFlex(flex-start, center);
+    flex-direction: column;
+
+    &_title {
+      @include setFonts(Scotch Modern, normal, bold, 70px, 70px);
+      max-width: 485px;
+      text-align: center;
+      color: $mainColor;
+      margin: 201px 0 43px 0;
+    }
+
+    &_subtitle {
+      @include setFonts(Scotch Modern, normal, bold, 50px, 50px);
+      margin-bottom: 229px;
+      text-align: center;
+    }
+
+    &_link {
+      @include setLink();
+      color: $mainColorOpacity;
+    }
+  }
+}
+
+@media (max-width: 416px) {
+  .mainContact {
+    &__info {
+      font-size: 46px;
+      line-height: 46px;
+
+      &_title {
+        margin: 56px 0;
+      }
+
+      &_subtitle {
+        font-family: Avenir Normal, sans-serif;
+        font-size: 30px;
+        line-height: 30px;
+        margin-bottom: 319px;
+      }
+    }
+
+  }
+}
+
+
+@media (max-width: 350px) {
+  .mainContact {
+    &__info {
+      &_title {
+        font-size: 40px;
+        line-height: 40px;
+      }
+
+      &_subtitle {
+        font-size: 26px;
+        line-height: 26px;
+        margin-bottom: 319px;
+      }
+    }
+  }
+}

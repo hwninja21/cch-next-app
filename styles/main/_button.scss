@@ -1,0 +1,59 @@
+.main-btn {
+  width: 230px;
+  height: 54px;
+  border-radius: 50px;
+  background: linear-gradient(89.84deg, #973bc0 4.89%, #007fd8 99.78%);
+  box-shadow: 0px 24px 34px rgba(0, 61, 166, 0.2);
+  border-radius: 40px;
+  font-family: "Avenir Normal";
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 25px;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  text-decoration: none;
+  animation: 2s swing ease-in-out infinite alternate;
+  animation-iteration-count: 2;
+
+  & svg {
+    margin-left: 10px;
+  }
+
+  &.swing {
+    transform-origin: top center;
+    animation-name: swing;
+  }
+
+  &:hover {
+    animation: 2s swing ease-in-out infinite alternate;
+  }
+
+  &.centralized{
+    margin: 0 auto 34px;
+  }
+}
+
+@keyframes swing {
+  20% {
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  to {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}

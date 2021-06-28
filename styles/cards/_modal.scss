@@ -1,0 +1,121 @@
+.modal {
+  @include setWidthAndHeight(100%, 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  @include setTransition(all, .1s, linear);
+  -webkit-backface-visibility: hidden;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1000;
+  display: block;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__body {
+    @include setWidthAndHeight(100%, 100%);
+    @include setFlex(center, center);
+    margin: 0 auto;
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__content {
+    position: sticky;
+    z-index: 10;
+    width: 641px;
+    -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(150, 4, 110, 0.73)), to(rgba(10, 87, 130, 0.73)));
+    background: -o-linear-gradient(top, rgba(150, 4, 110, 0.73) 0%, rgba(10, 87, 130, 0.73) 100%);
+    background: linear-gradient(180deg, rgba(150, 4, 110, 0.73) 0%, rgba(10, 87, 130, 0.73) 100%);
+    @include setBorderRadius(20px);
+    max-height: 501px;
+    padding: 34px 0 40px 0;
+
+    &_no-songs {
+      @include setWidthAndHeight(100%, 100%);
+      @include setFlex(center, center);
+    }
+
+    &_ref {
+      height: 1px;
+    }
+
+    &_body {
+      max-height: 440px;
+      overflow-y: auto;
+      @include setWidthAndHeight(100%, 100%);
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+
+    }
+
+    &_no-songs {
+      @include setFonts(Avenir, normal, 900, 18px, 25px);
+      color: #fff;
+    }
+
+    &_title-cover {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    &_title-other {
+      margin: 27px 0;
+      text-align: center
+    }
+
+    &_others, &_covers {
+      @include setFlex(center, center);
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+
+      &-item {
+        @include setFonts(Avenir Normal, normal, normal, 18px, 25px);
+        color: #fff;
+      }
+
+      &-link {
+        color: #fff;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .modal {
+    &__content {
+      &_others, &_covers {
+        &-item {
+          text-align: center;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 417px) {
+  .modal {
+    padding: 0 10px;
+
+    &__button {
+      width: 345px;
+    }
+  }
+}

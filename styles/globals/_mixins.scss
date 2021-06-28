@@ -1,0 +1,55 @@
+@mixin setFlex($jc, $ai, $d: flex) {
+  display: $d;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+@mixin setFonts($ff,$f-style,$fw,$f-size,$lh) {
+  font-family: $ff, sans-serif;
+  font-style: $f-style;
+  font-weight: $fw;
+  font-size: $f-size;
+  line-height: $lh;
+}
+
+@mixin setGradientColor($b-clip: text,$tf-color: transparent) {
+  background: $hoveredButtonsBg;
+  -webkit-background-clip: $b-clip;
+  -webkit-text-fill-color: $tf-color;
+}
+
+@mixin setLink($color: $mainColor, $td: none) {
+  color: $color;
+  text-decoration: $td;
+}
+
+@mixin setWidthAndHeight($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin setButton($transition,$color: #fff, $b-color: $buttonsBg) {
+  color: $color;
+  background: $b-color;
+  transition: $transition;
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+}
+
+@mixin setTransition($value,$sec,$type) {
+  transition: $value $sec $type;
+  -webkit-transition: $value $sec $type;
+  -moz-transition: $value $sec $type;
+  -ms-transition: $value $sec $type;
+  -o-transition: $value $sec $type;
+}
+
+@mixin setBorderRadius($radius){
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+}

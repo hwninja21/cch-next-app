@@ -1,0 +1,176 @@
+&-explore {
+  &__title {
+    max-width: 1200px;
+    @include setFonts(Scotch Modern, normal, bold, 48px, 60px);
+    color: $mainColor;
+  }
+
+  &__list {
+    @include setFlex(space-between, flex-start);
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    height: 919px;
+    width: 100%;
+    overflow: hidden;
+    @include setTransition(height, .2s, linear);
+    margin: 91px 0 65px 0;
+
+    &.active {
+      height: auto;
+    }
+
+    &-item {
+      max-width: 368px;
+      @include setFlex(center, flex-start);
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      position: relative;
+      margin-bottom: 20px;
+
+      &_button {
+        @include setFonts(Avenir Normal, normal, normal, 16px, 22px);
+        min-width: 120px;
+        height: 40px;
+        border: 2px solid #FFFFFF;
+        @include setBorderRadius(110px);
+        background-color: transparent;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        color: #fff;
+        z-index: 2;
+        padding: 0 5px;
+      }
+
+      &_container {
+        height: 388px;
+        display: inline-block;
+        text-align: center;
+        color: #fff;
+        background: transparent;
+        position: relative;
+        overflow: hidden;
+        @include setBorderRadius(30px);
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          @include setWidthAndHeight(100%, 100%);
+          @include setBorderRadius(30px);
+          background: $hoveredImage;
+          opacity: 0;
+          @include setTransition(opacity, .3s, ease);
+        }
+
+        &:hover:after {
+          opacity: 1;
+        }
+      }
+
+      &_img {
+        @include setWidthAndHeight(100%, 100%);
+        -webkit-filter: drop-shadow(0px 24px 24px rgba(223, 179, 150, 0.2));
+        filter: drop-shadow(0px 24px 24px rgba(223, 179, 150, 0.2));
+        z-index: 3;
+      }
+
+      &_title {
+        width: 100%;
+        text-align: center;
+        @include setFonts(Avenir, normal, 800, 20px, 27px);
+        color: $mainColor;
+        margin: 20px 0 4px 0;
+      }
+    }
+  }
+
+  &__button {
+    @include setWidthAndHeight(301px, 59px);
+    @include setFonts(Avenir Normal, normal, normal, 18px, 24.59px);
+    @include setLink(#fff);
+    @include setFlex(center, center);
+    @include setBorderRadius(10px);
+    margin: 0 auto;
+    -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+    &:hover {
+      text-shadow: 0.4px 0.4px 0 #fff;
+    }
+
+    &.hovered-btn {
+      @include setButton(all .3s ease-out);
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $hoveredButtonsBg;
+        z-index: -1;
+        @include setTransition(opacity, .2s, linear);
+        opacity: 0;
+      }
+
+      &:hover::before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  &-explore {
+    &__title {
+      font-size: 28px;
+      line-height: 28px;
+      margin: 65px 0 47px 0;
+    }
+
+    &__list {
+      margin: 47px 0 39px 0;
+      height: 1405px;
+      justify-content: center;
+
+      &-item {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-bottom: 39px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &_title {
+          font-size: 16px;
+          line-height: 22px;
+        }
+
+        &_button {
+          display: none;
+        }
+
+        &_container {
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 376px) {
+  &-explore {
+    &__button {
+      width: 100%;
+    }
+  }
+}

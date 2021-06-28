@@ -1,0 +1,96 @@
+&-what {
+  margin: 116px 0 50px 0;
+
+  &__title {
+    @include setFonts(Scotch Modern, normal, bold, 56px, 56px);
+    color: $mainColor;
+  }
+
+  &__list {
+    @include setFlex(space-between, stretch);
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 47px;
+
+    &-item {
+      max-width: 278px;
+      width: 30%;
+      text-align: center;
+      position: relative;
+      @include setFlex(flex-start, center);
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &_number {
+        @include setFonts(Avenir, normal, 900, 100px, 137px);
+        background: -webkit-gradient(linear, left top, right top, from(rgba(28, 83, 116, 0.8)), color-stop(91.18%, rgba(50, 3, 37, 0.8)));
+        background: -o-linear-gradient(left, rgba(28, 83, 116, 0.8) 0%, rgba(50, 3, 37, 0.8) 91.18%);
+        background: linear-gradient(90deg, rgba(28, 83, 116, 0.8) 0%, rgba(50, 3, 37, 0.8) 91.18%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        @include setTransition(all, .3s, linear);
+        text-shadow: 0 23px 34px rgba(0, 61, 166, 0.25);
+      }
+
+      &_title {
+        @include setFonts(Avenir, normal, 800, 14px, 25px);
+        color: $darkBlue;
+        max-width: 278px;
+      }
+    }
+
+    &-child-list {
+      margin-top: 10px;
+      padding-left: 45px;
+
+      &_item {
+        @include setFonts(Avenir Normal, normal, normal, 16px, 22px);
+        max-width: 205px;
+        text-align: left;
+        color: $darkBlue;
+
+        &::marker {
+          content: "– ";
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  &-what {
+    margin: 82px 0 50px 0;
+
+    &__title {
+      font-size: 36px;
+      line-height: 48px;
+    }
+
+    &__list {
+      &-item {
+        max-width: none;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 416px) {
+  &-what {
+    margin: 62px 0 47px 0;
+
+    &__title {
+      max-width: 275px;
+      font-size: 28px;
+      line-height: 28px;
+    }
+
+    
+  }
+}

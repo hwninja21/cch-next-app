@@ -1,0 +1,19 @@
+.main {
+  background-color: #fafafa;
+  padding-top: 90px;
+  @import "explore";
+  @import "singular";
+  @import "example";
+  @import "artistsslider";
+  @import "button";
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding-top: 65px;
+  }
+}
+// adds margin of 120px to sections.
+.pb-120 {
+  margin-bottom: 120px !important;
+}
